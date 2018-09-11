@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hang Man</title>
+
+</head>
+
+<body>
+
+
+<p>place for new word to guess </p>
+	<p id="newWord"></p>
+	<p id="wrongLetters"></p>
+	<p id="yourAttempts"></p>
+
+
+
+	<script type="text/javascript">
+//creating an array with words
+var wordList = ["fox", "horse", "bear", "dog", "cat", "parrot", "pigne", "shark", "dolphine"];
+
+//creating counters
+var attempts=10; //it will go down
+
+
+//Create variables that hold references to the places in the HTML where we want to display things.
+var randomWord = document.getElementById("newWord");
+var collectionOfWrongLetters=document.getElementById("wrongLetters");
+var counterOfAttempts = document.getElementById("yourAttempts");
+
+//functions
+
+ document.onkeyup = function(event) {
+
+var computerChoseWord = wordList[Math.floor(Math.random() * wordList.length)];
+
+var secretWord=[];
+	for (var i =0; i<computerChoseWord.length; i++){
+		secretWord[i]="_ ";
+		}
+
+
+ 	var userGuess = event.key;
+
+ 	if (userGuess === computerChoseWord[i]){
+ 		secretWord[i].replace(userGuess);
+ 	}
+};
+//Represent
+randomWord.textContent=secretWord;
+
+
+	</script>
+</body>
+</html> 
