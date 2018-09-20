@@ -1,54 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Hang Man</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Eater" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Butcherman" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<title>Psycho</title>
 
 </head>
 
-<body>
+<body class='text-center'>
 
+<div class='cover-container d-flex w-100 h-100 mx-auto flex-column'>
+	<header class='masthead mb-auto'>
+		<div class="gifPlace" style='width:250px, height:auto;'></div>
+		<p class='witchSays'>Guess my letter kid!</p>
+	</header>
+	<main role='main' class='inner cover'>
+		<p id="userGuess"></p>
+	</main>
+	<footer class='mastfoot mt-auto'>
+		<p id="win"></p>
+		<p id="guessCounter"></p>
+		<p id="loss"></p>
+	</footer>
 
-<p>place for new word to guess </p>
-	<p id="newWord"></p>
-	<p id="wrongLetters"></p>
-	<p id="yourAttempts"></p>
+</div>
 
+<script type="text/javascript">
+	//no jQuery
+	// загадать букву
+	//Guess letter
+	//wins
+	//losses
+	//guesses left
+	//you guess (make a collection)
 
-
-	<script type="text/javascript">
 //creating an array with words
-var wordList = ["fox", "horse", "bear", "dog", "cat", "parrot", "pigne", "shark", "dolphine"];
+var letterList = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+var randomLetter = letterList[Math.floor(Math.random()*letterList.length)];
+console.log(randomLetter);
+var userChoise;
+var letterCollection=[];
+var win = 0;
+var loss = 0;
+var guesses = 10;
 
-//creating counters
-var attempts=10; //it will go down
+//get elements
 
 
-//Create variables that hold references to the places in the HTML where we want to display things.
-var randomWord = document.getElementById("newWord");
-var collectionOfWrongLetters=document.getElementById("wrongLetters");
-var counterOfAttempts = document.getElementById("yourAttempts");
+var reset = function(){
 
-//functions
+     letterCollection='';
+     guesses = 10;
+     randomLetter;
+}; 
 
  document.onkeyup = function(event) {
+ 	userChoise = event.key.toLowerCase();
+ 	console.log(userChoise);
 
-var computerChoseWord = wordList[Math.floor(Math.random() * wordList.length)];
+	letterCollection.push(userChoise); 
+	elUserGuess.innerHTML = 'Your guesses: ' + letterCollection;
 
-var secretWord=[];
-	for (var i =0; i<computerChoseWord.length; i++){
-		secretWord[i]="_ ";
-		}
+if(userChoise === randomLetter){
+	win++;
+	var gifIcon = document.getElementById('gifPlace');
+	gifIcon.className='gifWinPlace';
+	elWin.innerHTML = 'Wins: ' + win;
+}
+else{
+	guesses--;
+	elGuessCounter.textContent = 'Guesses left: ' + guesses;
+}
 
+if(guesses == 0){
+	loss++;
+	elLoss.textContent = 'Loss: ' + loss;
+}
 
- 	var userGuess = event.key;
-
- 	if (userGuess === computerChoseWord[i]){
- 		secretWord[i].replace(userGuess);
- 	}
 };
-//Represent
-randomWord.textContent=secretWord;
+
+var elWin = document.getElementById('win');
+elWin.innerHTML = 'Wins: ' + win;
+var elLoss = document.getElementById('loss');
+elLoss.textContent = 'Loss: ' + loss;
+var elGuessCounter = document.getElementById('guessCounter');
+elGuessCounter.textContent = 'Guesses left: ' + guesses;
+var elUserGuess = document.getElementById('userGuess');
+elUserGuess.innerHTML = 'Your guesses: ';
+
+
+
+
 
 
 	</script>

@@ -1,0 +1,26 @@
+body{
+	background-color: rgb(17, 25, 142);
+	background: url(../images/bg.jpg);
+}
+.cover-container {
+    max-width: 42em;
+    background-color: rgba(17, 25, 142, 0.7);
+    box-shadow: inset 0 0 52px 17px rgba(74, 21, 124, 0.6);
+    border-radius: 25px;
+}
+
+p.witchSays{
+	font-family: 'Butcherman', cursive;
+	color:white;
+	font-size: 41px;
+    letter-spacing: 2.3px;
+}
+.gifPlace{
+	background-image: url('../images/witch.gif');
+}
+.gifWinPlace{
+	background-image: url('../images/win.gif');	
+}
+.gifLossPlace{
+	background-image: url('../images/loss.gif');	
+}
