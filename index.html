@@ -4,99 +4,44 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Eater" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Butcherman" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/style.css">
-	<title>Psycho</title>
+	<title>Number-Guess</title>
 
 </head>
 
-<body class='text-center'>
+<body>
 
-<div class='cover-container d-flex w-100 h-100 mx-auto flex-column'>
-	<header class='masthead mb-auto'>
-		<div class="gifPlace" style='width:250px, height:auto;'></div>
-		<p class='witchSays'>Guess my letter kid!</p>
-	</header>
-	<main role='main' class='inner cover'>
-		<p id="userGuess"></p>
-	</main>
-	<footer class='mastfoot mt-auto'>
-		<p id="win"></p>
-		<p id="guessCounter"></p>
-		<p id="loss"></p>
-	</footer>
+<div class="main container col-md-6">
+	<section class="GameName row  align-content-center">
+		<h1 class="col text-center">Guess the letter</h1>
+	</section>
+	<section class="row justify-content-between">
+		<div class="col d-flex text-align-left justify-content-center align-content-center">Win: 
+			<p class="input" id="win">0</p></div>	
+		<div class="col d-flex text-align-right justify-content-center align-content-center">Loss:<p class="input" id="loss">0</p>
+		</div>
+		
+	</section>
+	<section class="guess container col-6 d-flex justify-content-between" id="userGuess">
+		<div class="d-flex justify-content-between">
+		<p class="bottom">N</p>
+		<p class="bottom">o</p>
+		<p class="bottom"></p>
+		<p class="bottom"></p>
+	</div>
+	<div class="d-flex justify-content-between">
+		<p class="bottom">C</p>
+		<p class="bottom">A</p>
+		<p class="bottom">K</p>
+		<p class="bottom">E</p>
+	</div>
+			</section>
+	<section class="secretLetter row justify-content-center">
+		<div class="col-3 letter">?</div>
+	</section>
 
 </div>
 
-<script type="text/javascript">
-	//no jQuery
-	// загадать букву
-	//Guess letter
-	//wins
-	//losses
-	//guesses left
-	//you guess (make a collection)
-
-//creating an array with words
-var letterList = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
-var randomLetter = letterList[Math.floor(Math.random()*letterList.length)];
-console.log(randomLetter);
-var userChoise;
-var letterCollection=[];
-var win = 0;
-var loss = 0;
-var guesses = 10;
-
-//get elements
-
-
-var reset = function(){
-
-     letterCollection='';
-     guesses = 10;
-     randomLetter;
-}; 
-
- document.onkeyup = function(event) {
- 	userChoise = event.key.toLowerCase();
- 	console.log(userChoise);
-
-	letterCollection.push(userChoise); 
-	elUserGuess.innerHTML = 'Your guesses: ' + letterCollection;
-
-if(userChoise === randomLetter){
-	win++;
-	var gifIcon = document.getElementById('gifPlace');
-	gifIcon.className='gifWinPlace';
-	elWin.innerHTML = 'Wins: ' + win;
-}
-else{
-	guesses--;
-	elGuessCounter.textContent = 'Guesses left: ' + guesses;
-}
-
-if(guesses == 0){
-	loss++;
-	elLoss.textContent = 'Loss: ' + loss;
-}
-
-};
-
-var elWin = document.getElementById('win');
-elWin.innerHTML = 'Wins: ' + win;
-var elLoss = document.getElementById('loss');
-elLoss.textContent = 'Loss: ' + loss;
-var elGuessCounter = document.getElementById('guessCounter');
-elGuessCounter.textContent = 'Guesses left: ' + guesses;
-var elUserGuess = document.getElementById('userGuess');
-elUserGuess.innerHTML = 'Your guesses: ';
-
-
-
-
-
-
-	</script>
 </body>
 </html> 

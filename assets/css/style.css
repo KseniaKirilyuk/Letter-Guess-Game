@@ -1,26 +1,105 @@
-body{
-	background-color: rgb(17, 25, 142);
-	background: url(../images/bg.jpg);
+html{
+	height: 100vh;
 }
-.cover-container {
-    max-width: 42em;
-    background-color: rgba(17, 25, 142, 0.7);
-    box-shadow: inset 0 0 52px 17px rgba(74, 21, 124, 0.6);
-    border-radius: 25px;
+body{
+    display: flex;
+    height: 100%;
 }
 
-p.witchSays{
-	font-family: 'Butcherman', cursive;
-	color:white;
-	font-size: 41px;
-    letter-spacing: 2.3px;
+.main.container {
+    padding: 15px;
+    box-shadow: 1px 1px 1px 3px #20beee;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    align-self: center;
+    background-image: url('../images/brick.png');
+    z-index: -7;
 }
-.gifPlace{
-	background-image: url('../images/witch.gif');
+h1.col.text-center {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #1b1464;
+    color: white;
+    text-shadow: -3px -2px #eb333d;
+    text-transform: uppercase;
+    border: 3px solid white;
 }
-.gifWinPlace{
-	background-image: url('../images/win.gif');	
+h1.col.text-center:after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    background: black;
+    z-index: -1;
 }
-.gifLossPlace{
-	background-image: url('../images/loss.gif');	
+
+h1.col.text-center:before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
+    background: #eb333d;
+    z-index: -2;
+}
+/*input row*/
+.row{
+	margin-top: 20px;
+    margin-bottom: 20px;
+}
+.input {
+    height: 40px;
+    width: 80px;
+    margin-bottom: 0;
+}
+p#win {
+    background-color: #20beee;
+    box-shadow: inset 3px 4px #a83ea7;
+ }
+ p#loss{
+  	background-color: #a83ea7;
+    box-shadow: inset 3px 4px #20beee;	
+ }
+.col.text-align-left, .col.text-align-right  {
+    font-size: 30px;
+}
+/*Letter guessed*/
+section#userGuess {
+	flex-direction: column;
+    margin-top: 40px;
+    box-shadow: 1px 1px 1px 2px;
+    background-color: white;
+}
+p.bottom {
+    border-bottom: 3px solid #1b1464;
+    width: 40px;
+    height: 40px;
+    font-size: 35px;
+}
+/*secret Letter*/
+.col-3.letter {
+    font-size: 40px;
+    background-color: #f1ce20;
+    height: 72px;
+    line-height: 72px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
