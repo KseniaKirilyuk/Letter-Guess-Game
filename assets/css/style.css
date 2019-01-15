@@ -74,8 +74,7 @@ section#userGuess {
     box-shadow: 1px 1px 1px 2px;
     background-color: white;
 }
-p.bottom {
-    border-bottom: 3px solid #1b1464;
+#bottom {
     width: 40px;
     height: 40px;
     font-size: 35px;

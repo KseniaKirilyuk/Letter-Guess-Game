@@ -25,23 +25,69 @@
 	</section>
 	<section class="guess container col-6 d-flex justify-content-between" id="userGuess">
 		<div class="d-flex justify-content-between">
-		<p class="bottom">N</p>
-		<p class="bottom">o</p>
-		<p class="bottom"></p>
-		<p class="bottom"></p>
-	</div>
-	<div class="d-flex justify-content-between">
-		<p class="bottom">C</p>
-		<p class="bottom">A</p>
-		<p class="bottom">K</p>
-		<p class="bottom">E</p>
+		<p id="bottom"></p>
 	</div>
 			</section>
 	<section class="secretLetter row justify-content-center">
-		<div class="col-3 letter">?</div>
+		<div id="sLetter" class="col-3 letter">?</div>
 	</section>
 
 </div>
+<script>
 
+
+	var letters = ['a','b','c','d','e','f'];
+	var letterGuess=[];
+	var wins = 0;
+	var losses = 0;
+	var guesses = 5;
+	
+	var winText = document.getElementById("win");
+	var lossText = document.getElementById("loss");
+	var letter = document.getElementById("sLetter");
+	var wrongLettersText = document.getElementById("bottom");
+
+	window.onload=function(){
+
+	var computerGuess = letters[Math.floor(Math.random() * letters.length)]; 
+	console.log(computerGuess);
+
+	var cleanLetter=function(){
+		letter.textContent='?';
+	}
+	var restart=function(){
+		guesses = 5;
+		letterGuess=[];
+		wrongLettersText.innerHTML='';
+		window.onload();
+	}
+
+	document.onkeyup = function(event) {
+		var userGuess = event.key;
+		if (userGuess === computerGuess){		
+			wins++;
+			console.log("won!", wins);
+			letter.textContent = computerGuess;
+			restart();
+		}
+		else{
+			cleanLetter();
+			letterGuess.push(userGuess);
+			wrongLettersText.innerHTML =letterGuess;
+			guesses --;
+			console.log(guesses);
+		};
+		if(guesses === 0){
+			losses++;
+			letter.textContent = computerGuess;
+			restart();		
+		}
+
+	
+	};
+		winText.textContent =  wins;
+		lossText.textContent = losses;
+}
+</script>
 </body>
 </html> 
